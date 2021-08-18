@@ -30,9 +30,12 @@ export default class SpaceCraftScreen extends React.Component{
 
   renderItem=({item})=>{
     return(
+      <View>
+        <Text>22</Text>
       <View
-      style={{borderWidth:1,justifyContent:'center',alignItems:'center',marginBottom:10,elevation:10}}
+      style={{borderWidth:1,justifyContent:"center",alignItems:'center',marginBottom:10,elevation:10}}
       >
+        <Text>22</Text>
      <Image
      source={{uri:item.agency.image_url}}
      style={{
@@ -42,7 +45,7 @@ export default class SpaceCraftScreen extends React.Component{
      <Text
      style={{
        fontWeight:'bold',fontSize:20 }}
-     >{item.name}</Text>
+     >Name</Text>
      <Text
      style={{
        color:'#696969'
@@ -55,6 +58,7 @@ export default class SpaceCraftScreen extends React.Component{
      }}
      >{item.agency.description}</Text>
       </View>
+      </View>
     )
   }
   render(){
@@ -62,8 +66,9 @@ export default class SpaceCraftScreen extends React.Component{
     <View 
     style={{
       flex:1,
-      justifyContent:'center',
-      alignItems:'center'
+    justifyContent:'center',
+    alignSelf:'center'
+
     }}
     >  
 <View 
@@ -73,16 +78,18 @@ style={{
   <Text>SpaceCraftScreen</Text>
 <View
 style={{
-  flex:0.75
+  flex:0.75,
+ 
 }}
 >
+  
 <FlatList 
 keyExtractor={this.keyExtractor}
 data={
 this.state.aircraft
 }
 renderItem={
-  this.renderItem()
+  this.renderItem
 }
 />
 </View>
