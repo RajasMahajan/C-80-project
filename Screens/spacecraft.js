@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { Text, View, StyleSheet ,TouchableOpacity,FlatList,Image} from 'react-native';
+import { Text, View, StyleSheet ,TouchableOpacity,FlatList,Image,SafeAreaView,StatusBar,Platform
+} from 'react-native';
 import Constants from 'expo-constants';
 import axios from 'axios';
 
@@ -31,7 +32,11 @@ export default class SpaceCraftScreen extends React.Component{
   renderItem=({item})=>{
     return(
       <View>
-        <Text>22</Text>
+        <SafeAreaView
+        style={
+        styles.androidsafearea}
+       />
+      
       <View
       style={{borderWidth:1,justifyContent:"center",alignItems:'center',marginBottom:10,elevation:10}}
       >
@@ -75,7 +80,7 @@ export default class SpaceCraftScreen extends React.Component{
 style={{
   flex:0.25
 }}>
-  <Text>SpaceCraftScreen</Text>
+  <Text>SpaceCraft Screen</Text>
 <View
 style={{
   flex:0.75,
@@ -96,5 +101,9 @@ renderItem={
 </View>
     </View>
   );
-  }
+  }}
+const styles = StyleSheet.create({
+androidsafearea:{
+marginTop:Platform.OS==='android'? StatusBar.currentHeight:0,
 }
+  })
